@@ -1,0 +1,90 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Essence Mascara Lash Princess",
+      "price": 29.99,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp",
+      "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+      "stock": 10,
+      "category": "beauty"
+    },
+    {
+      "id": "2",
+      "title": "Eyeshadow Palette with Mirror",
+      "price": 59.99,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp",
+      "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+      "stock": 34,
+      "category": "beauty"
+    },
+    {
+      "title": "Powder Canister",
+      "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+      "price": 14.99,
+      "stock": 89,
+      "category": "beauty",
+      "image": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp",
+      "id": "3"
+    },
+    {
+      "id": "53e4",
+      "title": "Red Lipstick",
+      "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+      "price": 12.99,
+      "stock": 91,
+      "category": "beauty",
+      "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+    }
+  ],
+  "users": [
+    {
+      "name": "Emily",
+      "email": "emily.johnson@x.dummyjson.com",
+      "role": "admin",
+      "image": "https://dummyjson.com/icon/emilys/128",
+      "createdAt": "2025-06-16T06:09:11.188Z",
+      "id": "1"
+    },
+    {
+      "name": "Evandro",
+      "email": "evandro.johnson@x.dummyjson.com",
+      "role": "customer",
+      "image": "https://dummyjson.com/icon/michaelw/129",
+      "createdAt": "2025-06-16T06:10:51.768Z",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Bruno Souza",
+      "email": "bruno.souza@x.dummyjson.com",
+      "image": "https://dummyjson.com/icon/sophiab/128",
+      "role": "admin",
+      "createdAt": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": "2",
+      "productIds": [
+        "1",
+        "2"
+      ],
+      "status": "delivered",
+      "totalPrice": 89.98,
+      "createdAt": "2025-06-15T12:34:56Z"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "productIds": [
+        "2",
+        "3"
+      ],
+      "status": "pending",
+      "totalPrice": 74.98,
+      "createdAt": "2025-06-14T10:40:00Z"
+    }
+  ]
+}
