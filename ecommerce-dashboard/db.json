@@ -28,39 +28,31 @@
       "id": "3"
     },
     {
-      "id": "53e4",
-      "title": "Red Lipstick",
+      "title": "Red Lipstick 123",
       "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
       "price": 12.99,
       "stock": 91,
       "category": "beauty",
-      "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+      "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp",
+      "id": "53e4"
     }
   ],
   "users": [
     {
-      "name": "Emily",
-      "email": "emily.johnson@x.dummyjson.com",
-      "role": "admin",
-      "image": "https://dummyjson.com/icon/emilys/128",
-      "createdAt": "2025-06-16T06:09:11.188Z",
-      "id": "1"
-    },
-    {
-      "name": "Evandro",
+      "name": "   Evandro    ",
       "email": "evandro.johnson@x.dummyjson.com",
       "role": "customer",
       "image": "https://dummyjson.com/icon/michaelw/129",
-      "createdAt": "2025-06-16T06:10:51.768Z",
+      "createdAt": "2025-06-17T06:48:44.616Z",
       "id": "2"
     },
     {
-      "id": "3",
-      "name": "Bruno Souza",
+      "name": "Bruno Souza 1",
       "email": "bruno.souza@x.dummyjson.com",
-      "image": "https://dummyjson.com/icon/sophiab/128",
       "role": "admin",
-      "createdAt": ""
+      "image": "https://dummyjson.com/icon/sophiab/128",
+      "createdAt": "2025-06-17T06:49:20.668Z",
+      "id": "3"
     }
   ],
   "orders": [
@@ -77,12 +69,12 @@
     },
     {
       "id": "2",
-      "userId": "1",
+      "userId": null,
       "productIds": [
         "2",
         "3"
       ],
-      "status": "pending",
+      "status": "delivered",
       "totalPrice": 74.98,
       "createdAt": "2025-06-14T10:40:00Z"
     }

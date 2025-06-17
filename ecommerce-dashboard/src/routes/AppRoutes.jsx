@@ -1,13 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from '../pages/dashboard';
 import ProductList from '../features/products/productList';
-import ProductForm from '../features/products/productForm';
+import ProductForm from '../features/products/ProductForm';
 
 const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
+    <Routes>     
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/add" element={<ProductForm />} />
       <Route path="/products/edit/:id" element={<ProductForm />} />

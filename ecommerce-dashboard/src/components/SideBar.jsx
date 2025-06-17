@@ -1,6 +1,6 @@
 // src/components/Sidebar.jsx
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -9,30 +9,20 @@ const Sidebar = () => {
         MyShop
       </div>
       <nav className="mt-4">
-        <ul className="flex flex-col gap-2 px-4">
+        <ul className="space-y-2 px-4">
           <li>
-            <Link to="/" className="block px-4 py-2 rounded hover:bg-gray-700 text-left">
-              Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" className="block px-4 py-2 rounded hover:bg-gray-700 text-left">
+            <Link to="/products" className="block px-4 py-2 rounded hover:bg-gray-700">
               Products
             </Link>
           </li>
           <li>
-            <Link to="/users" className="block px-4 py-2 rounded hover:bg-gray-700 text-left">
+            <Link to="/users" className="block px-4 py-2 rounded hover:bg-gray-700">
               Users
             </Link>
           </li>
           <li>
-            <Link to="/orders" className="block px-4 py-2 rounded hover:bg-gray-700 text-left">
+            <Link to="/orders" className="block px-4 py-2 rounded hover:bg-gray-700">
               Orders
-            </Link>
-          </li>
-          <li>
-            <Link to="/settings" className="block px-4 py-2 rounded hover:bg-gray-700 text-left">
-              Settings
             </Link>
           </li>
         </ul>
