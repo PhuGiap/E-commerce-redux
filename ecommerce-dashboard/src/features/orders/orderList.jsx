@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchOrders, updateOrderStatus } from './orderSlice';
 import OrderDetail from './orderDetail';
-import { fetchUsers } from '../users/userSlice';
-import { fetchProducts } from '../products/productSlice';
 
 const statusStyles = {
   pending: 'bg-yellow-200 text-yellow-800',
@@ -35,8 +33,7 @@ const OrderList = () => {
 
   useEffect(() => {
     dispatch(fetchOrders());
-    dispatch(fetchUsers());
-    dispatch(fetchProducts());
+
   }, [dispatch]);
 
   const getUserName = (userId) => {
@@ -59,59 +56,60 @@ const OrderList = () => {
   return (
     <div>
       <h2 className="text-xl font-semibold mb-4">Danh sách đơn hàng</h2>
-
-      <table className="w-full text-left border border-collapse border-gray-300">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-2 border">Mã đơn</th>
-            <th className="p-2 border">Khách hàng</th>
-            <th className="p-2 border">Ngày tạo</th>
-            <th className="p-2 border">Trạng thái</th>
-            <th className="p-2 border">Tổng tiền</th>
-            <th className="p-2 border">Hành động</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map(order => (
-            <tr key={order.id} className="hover:bg-gray-50">
-              <td className="p-2 border">#{order.id}</td>
-              <td className="p-2 border">{getUserName(order.userId)}</td>
-              <td className="p-2 border">{new Date(order.createdAt).toLocaleString()}</td>
-              <td
-                className={`p-2 border capitalize font-semibold rounded text-center ${statusStyles[order.status] || ''}`}
-              >
-                {order.status}
-              </td>
-              <td className="p-2 border">{formatCurrency(order.totalPrice)}</td>
-              <td className="p-2 border">
-                <div className="flex gap-2 flex-wrap">
-                  <button
-                    onClick={() => setSelectedOrderId(order.id)}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
-                  >
-                    Chi tiết
-                  </button>
-                  {order.status !== 'delivered' && (
-                    <button
-                      onClick={() => handleStatusChange(order)}
-                      className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
-                    >
-                      Chuyển sang "{getNextStatus(order.status)}"
-                    </button>
-                  )}
-                </div>
-              </td>
-            </tr>
-          ))}
-          {orders.length === 0 && (
+      <div class="relative overflow-x-auto">
+        <table className="w-full text-left border border-collapse border-gray-300">
+          <thead className="bg-gray-100">
             <tr>
-              <td colSpan="6" className="text-center text-gray-500 p-4">
-                Không có đơn hàng nào.
-              </td>
+              <th className="p-2 border">Mã đơn</th>
+              <th className="p-2 border">Khách hàng</th>
+              <th className="p-2 border">Ngày tạo</th>
+              <th className="p-2 border">Trạng thái</th>
+              <th className="p-2 border">Tổng tiền</th>
+              <th className="p-2 border">Hành động</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orders.map(order => (
+              <tr key={order.id} className="hover:bg-gray-50">
+                <td className="p-2 border">#{order.id}</td>
+                <td className="p-2 border">{getUserName(order.userId)}</td>
+                <td className="p-2 border">{new Date(order.createdAt).toLocaleString()}</td>
+                <td
+                  className={`p-2 border capitalize font-semibold rounded text-center ${statusStyles[order.status] || ''}`}
+                >
+                  {order.status}
+                </td>
+                <td className="p-2 border">{formatCurrency(order.totalPrice)}</td>
+                <td className="p-2 border">
+                  <div className="flex gap-2 flex-wrap">
+                    <button
+                      onClick={() => setSelectedOrderId(order.id)}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
+                    >
+                      Chi tiết
+                    </button>
+                    {order.status !== 'delivered' && (
+                      <button
+                        onClick={() => handleStatusChange(order)}
+                        className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+                      >
+                        Chuyển sang "{getNextStatus(order.status)}"
+                      </button>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))}
+            {orders.length === 0 && (
+              <tr>
+                <td colSpan="6" className="text-center text-gray-500 p-4">
+                  Không có đơn hàng nào.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
       {/* Modal xem chi tiết */}
       {selectedOrderId && (

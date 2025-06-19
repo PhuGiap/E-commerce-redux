@@ -16,7 +16,6 @@ const App = () => {
         <Route path="/products" element={<ProductList />} />
         <Route path="/users" element={<UserList onEdit={() => {}} />} />
         <Route path="/orders" element={<OrderList />} />
-       
       </Routes>
     </Layout>
   );

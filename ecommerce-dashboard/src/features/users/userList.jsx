@@ -27,8 +27,8 @@ const UserList = () => {
 
   const filteredUsers = Array.isArray(users)
     ? users.filter(user =>
-        user.name.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
     : [];
 
   return (
@@ -46,35 +46,36 @@ const UserList = () => {
       {loading ? (
         <p>Đang tải...</p>
       ) : (
-        <table className="w-full text-left border border-collapse border-gray-300">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-2 border">Ảnh</th>
-              <th className="p-2 border">Họ tên</th>
-              <th className="p-2 border">Email</th>
-              <th className="p-2 border">Role</th>
-              <th className="p-2 border">Cập nhật lúc</th>
-              <th className="p-2 border">Hành động</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsers.map(user => (
-              <tr key={user.id} className="hover:bg-gray-50">
-                <td className="p-2 border">
-                  <img
-                    src={user.image}
-                    alt={user.name}
-                    width="40"
-                    height="40"
-                    style={{ borderRadius: '50%' }}
-                  />
-                </td>
-                <td className="p-2 border">{user.name}</td>
-                <td className="p-2 border">{user.email}</td>
-                <td className="p-2 border">{user.role}</td>
-                <td className="p-2 border text-sm text-gray-600">
-                  {user.createdAt
-                    ? new Date(user.createdAt).toLocaleString('vi-VN', {
+        <div class="relative overflow-x-auto">
+          <table className="w-full text-left border border-collapse border-gray-300">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="p-2 border">Ảnh</th>
+                <th className="p-2 border">Họ tên</th>
+                <th className="p-2 border">Email</th>
+                <th className="p-2 border">Role</th>
+                <th className="p-2 border">Cập nhật lúc</th>
+                <th className="p-2 border">Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredUsers.map(user => (
+                <tr key={user.id} className="hover:bg-gray-50">
+                  <td className="p-2 border">
+                    <img
+                      src={user.image}
+                      alt={user.name}
+                      width="40"
+                      height="40"
+                      style={{ borderRadius: '50%' }}
+                    />
+                  </td>
+                  <td className="p-2 border">{user.name}</td>
+                  <td className="p-2 border">{user.email}</td>
+                  <td className="p-2 border">{user.role}</td>
+                  <td className="p-2 border text-sm text-gray-600">
+                    {user.createdAt
+                      ? new Date(user.createdAt).toLocaleString('vi-VN', {
                         hour12: false,
                         day: '2-digit',
                         month: '2-digit',
@@ -82,35 +83,36 @@ const UserList = () => {
                         hour: '2-digit',
                         minute: '2-digit',
                       })
-                    : '—'}
-                </td>
-                <td className="p-2 border">
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => handleEdit(user)}
-                      className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded"
-                    >
-                      Sửa
-                    </button>
-                    <button
-                      onClick={() => handleDelete(user.id)}
-                      className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
-                    >
-                      Xóa
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-            {filteredUsers.length === 0 && (
-              <tr>
-                <td colSpan="6" className="text-center text-gray-500 p-4">
-                  Không tìm thấy người dùng nào.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+                      : '—'}
+                  </td>
+                  <td className="p-2 border">
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleEdit(user)}
+                        className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded"
+                      >
+                        Sửa
+                      </button>
+                      <button
+                        onClick={() => handleDelete(user.id)}
+                        className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+                      >
+                        Xóa
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+              {filteredUsers.length === 0 && (
+                <tr>
+                  <td colSpan="6" className="text-center text-gray-500 p-4">
+                    Không tìm thấy người dùng nào.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       )}
 
       {/* Modal sửa/thêm user */}
