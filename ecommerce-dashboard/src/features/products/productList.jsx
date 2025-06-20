@@ -73,7 +73,7 @@ const ProductList = () => {
       )}
 
       {/* Danh sách sản phẩm */}
-      {/* flex + justify-evenly giúp giãn cách đều hai bên và giữa các item */}
+      
       <div className="max-w-7xl mx-auto flex flex-wrap justify-evenly gap-6">
         {items.map((product) => (
           <div
@@ -87,7 +87,7 @@ const ProductList = () => {
             />
 
             <div className="p-4">
-              <p className="text-lg font-semibold">
+              <p className="text-lg font-semibold text-white">
                 ${product.price}
               </p>
               <h3 className="text-sm text-gray-200 mt-1 line-clamp-2">

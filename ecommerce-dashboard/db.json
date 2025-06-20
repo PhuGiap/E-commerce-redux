@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "Essence Mascara Lash Princess",
-      "price": 29.99,
-      "image": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp",
-      "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-      "stock": 10,
-      "category": "beauty"
-    },
-    {
       "id": "2",
       "title": "Eyeshadow Palette with Mirror",
       "price": 59.99,
@@ -35,17 +26,29 @@
       "category": "beauty",
       "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp",
       "id": "53e4"
+    },
+    {
+      "id": "e454",
+      "title": "123",
+      "description": "123",
+      "price": 1,
+      "stock": 1
+    },
+    {
+      "id": "f5b2",
+      "title": "123",
+      "description": "123",
+      "price": 12,
+      "stock": 22
+    },
+    {
+      "id": "f79d",
+      "title": "25252525252352",
+      "price": 11,
+      "stock": 11
     }
   ],
   "users": [
-    {
-      "name": "   Evandro    ",
-      "email": "evandro.johnson@x.dummyjson.com",
-      "role": "customer",
-      "image": "https://dummyjson.com/icon/michaelw/129",
-      "createdAt": "2025-06-17T06:48:44.616Z",
-      "id": "2"
-    },
     {
       "name": "Bruno Souza 1",
       "email": "bruno.souza@x.dummyjson.com",
@@ -53,23 +56,96 @@
       "image": "https://dummyjson.com/icon/sophiab/128",
       "createdAt": "2025-06-17T06:49:20.668Z",
       "id": "3"
-    }
+    },
+    {
+    "name": "Maria Silva",
+    "email": "maria.silva@x.dummyjson.com",
+    "role": "user",
+    "image": "https://dummyjson.com/icon/emilya/128",
+    "createdAt": "2025-06-17T07:00:00.000Z",
+    "id": "2"
+  },
+  {
+    "name": "John Smith",
+    "email": "john.smith@x.dummyjson.com",
+    "role": "user",
+    "image": "https://dummyjson.com/icon/michaelb/128",
+    "createdAt": "2025-06-17T07:10:00.000Z",
+    "id": "3"
+  },
+  {
+    "name": "Alice Johnson",
+    "email": "alice.johnson@x.dummyjson.com",
+    "role": "admin",
+    "image": "https://dummyjson.com/icon/alicej/128",
+    "createdAt": "2025-06-17T07:20:00.000Z",
+    "id": "4"
+  },
+  {
+    "name": "David Lee",
+    "email": "david.lee@x.dummyjson.com",
+    "role": "user",
+    "image": "https://dummyjson.com/icon/davidl/128",
+    "createdAt": "2025-06-17T07:30:00.000Z",
+    "id": "5"
+  },
+  {
+    "name": "Sophia Brown",
+    "email": "sophia.brown@x.dummyjson.com",
+    "role": "user",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "createdAt": "2025-06-17T07:40:00.000Z",
+    "id": "6"
+  },
+  {
+    "name": "Liam Wilson",
+    "email": "liam.wilson@x.dummyjson.com",
+    "role": "admin",
+    "image": "https://dummyjson.com/icon/liamw/128",
+    "createdAt": "2025-06-17T07:50:00.000Z",
+    "id": "7"
+  },
+  {
+    "name": "Olivia Davis",
+    "email": "olivia.davis@x.dummyjson.com",
+    "role": "user",
+    "image": "https://dummyjson.com/icon/oliviad/128",
+    "createdAt": "2025-06-17T08:00:00.000Z",
+    "id": "8"
+  },
+  {
+    "name": "Noah Miller",
+    "email": "noah.miller@x.dummyjson.com",
+    "role": "user",
+    "image": "https://dummyjson.com/icon/noahm/128",
+    "createdAt": "2025-06-17T08:10:00.000Z",
+    "id": "9"
+  },
+  {
+    "name": "Emma Martinez",
+    "email": "emma.martinez@x.dummyjson.com",
+    "role": "admin",
+    "image": "https://dummyjson.com/icon/emmam/128",
+    "createdAt": "2025-06-17T08:20:00.000Z",
+    "id": "10"
+  }
+    
   ],
   "orders": [
     {
       "id": "1",
-      "userId": "2",
+      "userId": "1",
       "productIds": [
         "1",
         "2"
       ],
-      "status": "delivered",
+      "status": "shipped",
       "totalPrice": 89.98,
       "createdAt": "2025-06-15T12:34:56Z"
     },
     {
       "id": "2",
-      "userId": null,
+      "userId": "2",
       "productIds": [
         "2",
         "3"
@@ -77,6 +153,46 @@
       "status": "delivered",
       "totalPrice": 74.98,
       "createdAt": "2025-06-14T10:40:00Z"
-    }
+    },
+    {
+    "id": "3",
+    "userId": "4",
+    "productIds": ["2", "53e4"],
+    "status": "pending",
+    "totalPrice": 72.98,
+    "createdAt": "2025-06-18T09:00:00Z"
+  },
+  {
+    "id": "4",
+    "userId": "5",
+    "productIds": ["f5b2"],
+    "status": "processing",
+    "totalPrice": 12.00,
+    "createdAt": "2025-06-18T10:15:00Z"
+  },
+  {
+    "id": "5",
+    "userId": "6",
+    "productIds": ["53e4", "3"],
+    "status": "shipped",
+    "totalPrice": 27.98,
+    "createdAt": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "6",
+    "userId": "8",
+    "productIds": ["e454", "f79d"],
+    "status": "delivered",
+    "totalPrice": 12.00,
+    "createdAt": "2025-06-18T15:45:00Z"
+  },
+  {
+    "id": "7",
+    "userId": "10",
+    "productIds": ["2"],
+    "status": "pending",
+    "totalPrice": 59.99,
+    "createdAt": "2025-06-18T17:00:00Z"
+  }
   ]
 }

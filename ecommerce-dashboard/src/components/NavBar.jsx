@@ -7,11 +7,6 @@ const Navbar = () => {
       <h1 className="text-xl font-semibold text-gray-800">Dashboard</h1>
       <div className="flex items-center gap-4">
         <span className="text-gray-600">Hi, Admin</span>
-        <img
-          src="https://i.pravatar.cc/40"
-          alt="Avatar"
-          className="w-10 h-10 rounded-full border"
-        />
       </div>
     </header>
   );
