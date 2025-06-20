@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, deleteUser } from './userSlice';
 import UserForm from './UserForm';
+import Modal from '../../components/Modal'; 
 
 const UserList = () => {
   const dispatch = useDispatch();
   const { items: users, loading } = useSelector(state => state.users);
+
   const [searchTerm, setSearchTerm] = useState('');
-  const [editUser, setEditUser] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -21,19 +23,32 @@ const UserList = () => {
   };
 
   const handleEdit = (user) => {
-    setEditUser(user);
-    setShowModal(true);
+    setSelectedUser(user);
+    setOpenModal(true);
+  };
+
+  const handleAdd = () => {
+    setSelectedUser(null);
+    setOpenModal(true);
   };
 
   const filteredUsers = Array.isArray(users)
     ? users.filter(user =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
     : [];
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Danh sách người dùng</h2>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-semibold">Danh sách người dùng</h2>
+        <button
+          onClick={handleAdd}
+          className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded"
+        >
+          Thêm người dùng
+        </button>
+      </div>
 
       <input
         type="text"
@@ -46,7 +61,7 @@ const UserList = () => {
       {loading ? (
         <p>Đang tải...</p>
       ) : (
-        <div class="relative overflow-x-auto">
+        <div className="relative overflow-x-auto">
           <table className="w-full text-left border border-collapse border-gray-300">
             <thead className="bg-gray-100">
               <tr>
@@ -76,13 +91,13 @@ const UserList = () => {
                   <td className="p-2 border text-sm text-gray-600">
                     {user.createdAt
                       ? new Date(user.createdAt).toLocaleString('vi-VN', {
-                        hour12: false,
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      })
+                          hour12: false,
+                          day: '2-digit',
+                          month: '2-digit',
+                          year: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })
                       : '—'}
                   </td>
                   <td className="p-2 border">
@@ -115,26 +130,20 @@ const UserList = () => {
         </div>
       )}
 
-      {/* Modal sửa/thêm user */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-md w-full max-w-md relative">
-            <button
-              className="absolute top-2 right-2 text-2xl text-gray-500 hover:text-red-500"
-              onClick={() => setShowModal(false)}
-            >
-              &times;
-            </button>
-            <UserForm
-              user={editUser}
-              onClose={() => {
-                setShowModal(false);
-                setEditUser(null);
-              }}
-            />
-          </div>
-        </div>
-      )}
+      {/* Modal dùng lại */}
+      <Modal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        title={selectedUser ? 'Chỉnh sửa người dùng' : 'Thêm người dùng'}
+      >
+        <UserForm
+          user={selectedUser}
+          onClose={() => {
+            setOpenModal(false);
+            setSelectedUser(null);
+          }}
+        />
+      </Modal>
     </div>
   );
 };

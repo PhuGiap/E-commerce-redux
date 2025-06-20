@@ -1,6 +1,7 @@
+// src/features/products/ProductForm.jsx
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addProduct, updateProduct, fetchProducts } from './ProductSlice';
+import { addProduct, updateProduct, fetchProducts } from './productSlice';
 
 const ProductForm = ({ product, onClose }) => {
   const [name, setName] = useState('');
@@ -20,7 +21,6 @@ const ProductForm = ({ product, onClose }) => {
       setCategory(product.category || '');
       setImageUrl(product.image || '');
     } else {
-      // Nếu thêm mới thì reset form
       setName('');
       setDescription('');
       setPrice('');
@@ -61,75 +61,86 @@ const ProductForm = ({ product, onClose }) => {
   };
 
   return (
-    <div className="bg-zinc-800 p-6 rounded-lg shadow-md max-w-md mx-auto mt-8 text-white">
-      <h2 className="text-xl font-bold mb-4 text-center">
-        {product ? 'Sửa sản phẩm' : 'Thêm sản phẩm mới'}
-      </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Tên sản phẩm *"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-zinc-700 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input
+        type="text"
+        placeholder="Tên sản phẩm *"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+        className="w-full px-4 py-2 rounded bg-zinc-100 border border-zinc-300 text-black"
+      />
+
+      <textarea
+        placeholder="Mô tả sản phẩm (tuỳ chọn)"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        rows={3}
+        className="w-full px-4 py-2 rounded bg-zinc-100 border border-zinc-300 text-black resize-none"
+      />
+
+      <input
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Giá *"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        required
+        className="w-full px-4 py-2 rounded bg-zinc-100 border border-zinc-300 text-black"
+      />
+
+      <input
+        type="number"
+        min="0"
+        step="1"
+        placeholder="Số lượng tồn kho *"
+        value={stock}
+        onChange={(e) => setStock(e.target.value)}
+        required
+        className="w-full px-4 py-2 rounded bg-zinc-100 border border-zinc-300 text-black"
+      />
+
+      <input
+        type="text"
+        placeholder="Danh mục (tuỳ chọn)"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="w-full px-4 py-2 rounded bg-zinc-100 border border-zinc-300 text-black"
+      />
+
+      <input
+        type="text"
+        placeholder="Link ảnh sản phẩm (tuỳ chọn)"
+        value={imageUrl}
+        onChange={(e) => setImageUrl(e.target.value)}
+        className="w-full px-4 py-2 rounded bg-zinc-100 border border-zinc-300 text-black"
+      />
+
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt="Preview"
+          className="mt-2 w-full h-40 object-contain rounded border border-gray-300"
         />
-        <textarea
-          placeholder="Mô tả sản phẩm (tuỳ chọn)"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          rows={3}
-          className="w-full px-4 py-2 rounded bg-zinc-700 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-        />
-        <input
-          type="number"
-          min="0"
-          step="0.01"
-          placeholder="Giá *"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-zinc-700 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-        <input
-          type="number"
-          min="0"
-          step="1"
-          placeholder="Số lượng tồn kho *"
-          value={stock}
-          onChange={(e) => setStock(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-zinc-700 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Danh mục (tuỳ chọn)"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-zinc-700 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          type="text"
-          placeholder="Link ảnh sản phẩm (tuỳ chọn)"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-zinc-700 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        {imageUrl && (
-          <img
-            src={imageUrl}
-            alt="Preview"
-            className="mt-2 w-full h-40 object-contain rounded border border-zinc-600"
-          />
-        )}
+      )}
+
+      <div className="flex justify-end gap-2 pt-2">
+        <button
+          type="button"
+          onClick={onClose}
+          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded"
+        >
+          Hủy
+        </button>
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded font-semibold"
+          className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded"
         >
           {product ? 'Lưu thay đổi' : 'Thêm sản phẩm'}
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

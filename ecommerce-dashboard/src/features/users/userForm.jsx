@@ -31,6 +31,11 @@ const UserForm = ({ user, onClose }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+
+  /**
+   * Handles form submission event
+   * @param {Event} e - form submission event
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -50,10 +55,6 @@ const UserForm = ({ user, onClose }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <h3 className="text-lg font-semibold mb-2">
-        {user ? 'Chỉnh sửa người dùng' : 'Thêm người dùng'}
-      </h3>
-
       <input
         type="text"
         name="name"
@@ -61,7 +62,7 @@ const UserForm = ({ user, onClose }) => {
         onChange={handleChange}
         placeholder="Họ tên"
         required
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black"
       />
 
       <input
@@ -71,7 +72,7 @@ const UserForm = ({ user, onClose }) => {
         onChange={handleChange}
         placeholder="Email"
         required
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black"
       />
 
       <input
@@ -81,10 +82,9 @@ const UserForm = ({ user, onClose }) => {
         onChange={handleChange}
         placeholder="Link ảnh đại diện"
         required
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black"
       />
 
-      {/* Hiển thị preview hình ảnh nếu có */}
       {formData.image && (
         <div className="mt-2">
           <img
@@ -100,7 +100,7 @@ const UserForm = ({ user, onClose }) => {
         value={formData.role}
         onChange={handleChange}
         required
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black"
       >
         <option value="">-- Chọn vai trò --</option>
         <option value="admin">Admin</option>
@@ -119,7 +119,7 @@ const UserForm = ({ user, onClose }) => {
           type="submit"
           className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded"
         >
-          Lưu
+          {user ? 'Lưu thay đổi' : 'Thêm người dùng'}
         </button>
       </div>
     </form>
