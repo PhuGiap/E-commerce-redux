@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addProduct, updateProduct, fetchProducts } from './productSlice';
+import { addProduct, updateProduct, fetchProducts } from './ProductSlice';
 
 const ProductForm = ({ product, onClose }) => {
   const [name, setName] = useState('');

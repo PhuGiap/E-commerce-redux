@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts, deleteProduct } from './productSlice';
+import { fetchProducts, deleteProduct } from './ProductSlice';
 import ProductForm from './ProductForm';
 
 const ProductList = () => {

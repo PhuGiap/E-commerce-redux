@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<h1 className="text-2xl font-bold">Welcome to Dashboard</h1>} />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/users" element={<UserList onEdit={() => {}} />} />
+        <Route path="/users" element={<UserList />} />
         <Route path="/orders" element={<OrderList />} />
       </Routes>
     </Layout>
